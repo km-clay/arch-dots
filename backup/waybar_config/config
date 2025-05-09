@@ -1,0 +1,113 @@
+{
+  "layer": "bottom",
+  "position": "top",
+  "name": "mainBar",
+  "mode": "dock",
+  "margin-top": 5,
+  "margin-left": 8,
+  "margin-right": 8,
+  "gtk-layer-shell": true,
+
+  "modules-left": ["hyprland/workspaces", "cava"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["group/hardware", "clock", "group/powerbtns"],
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六"
+    },
+    "persistent-workspaces": {
+			"HDMI-A-1": [1, 2, 3],
+			"DP-1": [4, 5, 6]
+		}
+  },
+
+  "cava": {
+    "framerate": 30,
+    "autosens": 1,
+    "sensitivity": 1,
+    "bars": 14,
+    "lower_cutoff_freq": 50,
+    "higher_cutoff_freq": 10000,
+    "method": "pulse",
+    "source": "auto",
+    "hide_on_silence": false,
+    "stereo": true,
+    "reverse": true,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": false,
+    "noise_reduction": 0.77,
+    "input_delay": 1,
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+  },
+
+  "group/hardware": {
+    "orientation": "inherit",
+    "modules": ["custom/disk-icon", "memory", "cpu"]
+  },
+
+  "custom/disk-icon": {
+    "exec": "/home/pagedmov/dotfiles/scripts/internals/disk_usage.sh",
+    "interval": 60,
+    "return-type": "json",
+    "rotate": 270,
+    "format": "{icon}",
+    "format-icons": ["󰝦", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"]
+  },
+
+  "memory": {
+    "interval": 1,
+    "rotate": 270,
+    "format": "{icon}",
+    "format-icons": ["󰝦", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"],
+    "tooltip-format": "RAM: {used:0.1f} GB / {total:0.1f} GB"
+  },
+
+  "cpu": {
+    "interval": 1,
+    "rotate": 270,
+    "format": "{icon}",
+    "format-icons": ["󰝦", "󰪞", "󰪟", "󰪠", "󰪡", "󰪢", "󰪣", "󰪤", "󰪥"],
+    "tooltip-format": "CPU: {usage:0.1f}%"
+  },
+
+  "clock": {
+    "format": "{:%I:%M %p}",
+    "tooltip": false
+  },
+
+  "group/powerbtns": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "power-drawer",
+      "transition-left-to-right": false
+    },
+    "modules": ["custom/power", "custom/logout", "custom/reboot"]
+  },
+
+  "custom/power": {
+    "on-click": "shutdown now",
+    "tooltip": false,
+    "format": " "
+  },
+
+  "custom/logout": {
+    "on-click": "hyprctl dispatch exit",
+    "tooltip": false,
+    "format": "󰗽 "
+  },
+
+  "custom/reboot": {
+    "on-click": "reboot",
+    "tooltip": false,
+    "format": " "
+  }
+}

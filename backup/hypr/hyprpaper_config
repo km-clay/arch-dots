@@ -1,0 +1,4 @@
+preload = ~/Media/Pictures/wallpapers/nord-balloons.png
+wallpaper = DP-1, ~/Media/Pictures/wallpapers/nord-balloons.png
+wallpaper = HDMI-A-1, ~/Media/Pictures/wallpapers/nord-balloons.png
+splash = false

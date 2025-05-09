@@ -1,0 +1,187 @@
+* {
+	border: none;
+	border-radius: 0;
+	font-size: 16px;
+	color: #BFBDB6;
+	font-family: "JetBrains Mono Nerd Font";
+}
+
+window#waybar {
+	border-radius: 10px;
+	border: 3px solid #BFBDB6;
+	background: rgba(23,29,35,0.50);
+	margin: 20px;
+}
+window#waybar.empty #window {
+	background: none;
+	border: none;
+}
+
+#workspaces {
+	margin: 3px;
+	background: #272D38;
+	border: 3px solid #3E4B59;
+	border-radius: 8px;
+}
+
+#workspaces button {
+	color: #F3F4F5;
+	background: #272D38;
+	font-weight: bold;
+}
+
+#workspaces button:hover {
+	border-radius: 8px;
+	background: #F6F7F8;
+}
+
+#workspaces button.active {
+	background: #F3F4F5;
+	border-radius: 8px;
+	color: #272D38;
+}
+
+#cava {
+	background: #272D38;
+	border-radius: 8px;
+	border: 3px solid #3E4B59;
+	margin: 3px 3px 3px 6px;
+	padding: 0px 15px 0px 15px;
+	color: #D2A6FF;
+}
+
+#window {
+	margin: 3px;
+	background: #272D38;
+	border-radius: 8px;
+	border: 3px solid #3E4B59;
+	padding: 0 15px 0 15px;
+	font-weight: bold;
+}
+
+#hardware {
+	margin: 3px;
+	padding: 0 10px 0 10px;
+	background: #272D38;
+	border-radius: 8px;
+	border: 3px solid #3E4B59;
+}
+
+#custom-disk-icon, #cpu, #memory {
+	margin-bottom: 4px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#custom-disk-icon {
+	color: #95E6CB;
+}
+
+#memory {
+	color: #FF8F40;
+}
+
+#cpu {
+	color: #B8CC52;
+}
+
+#clock {
+	font-weight: bold;
+	background: #272D38;
+	border-radius: 8px;
+	border: 3px solid #3E4B59;
+	margin: 3px;
+	padding: 0 10px 0 10px;
+	font-size: 18px;
+}
+
+#powerbtns {
+	background: #272D38;
+	border-radius: 8px;
+	border: 3px solid #3E4B59;
+	margin: 3px;
+	padding: 0 5px 0 10px;
+}
+
+#custom-power {
+	color: #FF8F40;
+	font-size: 18px;
+}
+
+#custom-logout {
+	color: #95E6CB;
+	font-size: 18px;
+}
+
+#custom-reboot {
+	color: #F07178;
+	font-size: 18px;
+}
+
+#audio {
+	background: #272D38;
+	border-radius: 8px;
+	border: 3px solid #3E4B59;
+	margin: 3px;
+	padding: 5px 0 10px 0;
+}
+
+#pulseaudio {
+	color: #FF8F40;
+	font-size: 18px;
+}
+
+#backlight-slider slider,
+#pulseaudio-slider slider {
+	background: #95E6CB;
+	background-color: transparent;
+	box-shadow: none;
+}
+
+#backlight-slider trough,
+#pulseaudio-slider trough {
+	min-width: 9px;
+	min-height: 90px;
+	border-radius: 8px;
+	background: #121212;
+}
+
+#backlight-slider highlight,
+#pulseaudio-slider highlight {
+	border-radius: 8px;
+	background-color: #95E6CB;
+}
+
+#network {
+	color: #FF8F40;
+	font-size: 20px;
+	background: #272D38;
+	border-radius: 8px;
+	border: 3px solid #3E4B59;
+	margin: 3px;
+	padding: 5px 0 5px 6px;
+}
+
+#brightness {
+	background: #272D38;
+	border-radius: 8px;
+	border: 3px solid #3E4B59;
+	margin: 3px;
+	padding: 10px 0px 5px 0;
+}
+
+#backlight {
+	color: #95E6CB;
+	font-size: 18px;
+	padding: 0 4px 0 0;
+}
+
+#battery {
+	color: #95E6CB;
+	font-size: 20px;
+	background: #272D38;
+	border: 3px solid #3E4B59;
+	border-radius: 8px;
+	margin: 3px;
+	padding: 5px 0 5px 0px;
+}
