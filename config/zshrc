@@ -42,6 +42,7 @@ alias mkexe="chmod +x"
 alias k9="kill -9"
 alias gcomm="gitcommit_sfx"
 alias gpush="gitpush_sfx"
+alias shortdate="date '+%m-%d-%y'"
 
 setopt APPEND_HISTORY     # Append history to the history file (don't overwrite)
 setopt INC_APPEND_HISTORY # Append to the history file incrementally

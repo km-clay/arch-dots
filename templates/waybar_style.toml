@@ -1,3 +1,5 @@
+path = "/home/pagedmov/dotfiles/config/waybar/stylehor.css"
+content = '''
 * {
     font-size: 14px;
     border: none;
@@ -9,36 +11,36 @@
 }
 
 window#waybar {
-    color: #CCCCCC;
-    background: #3D4636;
+    color: ${{fg}};
+    background: ${{bg}};
 }
 
 tooltip {
-    background: #3D4636;
+    background: ${{bg}};
 }
 
 #workspaces button {
-    color: #CCCCCC;
+    color: ${{fg}};
 }
 
 #workspaces button.active {
-    color: #9C903F;
-    background: #3D4636;
+    color: ${{selection}};
+    background: ${{bg}};
 }
 
 #workspaces button.focused {
     color: #9D9140;
-    background: #3D4636;
+    background: ${{bg}};
 }
 
 #workspaces button.urgent {
-    color: #CCCCCC;
-    background: #3D4636;
+    color: ${{fg}};
+    background: ${{bg}};
 }
 
 #workspaces button:hover {
-    background: #CCCCCC;
-    color: #3D4636;
+    background: ${{fg}};
+    color: ${{bg}};
 }
 
 #custom-language,
@@ -63,11 +65,11 @@ tooltip {
 }
 
 #workspaces {
-    color: #CCCCCC;
+    color: ${{fg}};
 }
 
 #window {
-    color: #CCCCCC;
+    color: ${{fg}};
 }
 
 .verBar#clock {
@@ -75,29 +77,30 @@ tooltip {
 }
 
 .horBar#clock {
-    color: #CCCCCC;
+    color: ${{fg}};
 }
 
 #network {
-    color: #CCCCCC;
+    color: ${{fg}};
 }
 
 #pulseaudio {
-    color: #CCCCCC;
+    color: ${{fg}};
 }
 
 #pulseaudio.microphone {
-    color: #CCCCCC;
+    color: ${{fg}};
 }
 
 #battery {
-    color: #CCCCCC;
+    color: ${{fg}};
 }
 
 #battery.warning:not(.charging) {
-    color: #9C943F;
+    color: ${{yellow}};
 }
 
 #battery.critical:not(.charging) {
-    color: #9C3F3F;
+    color: ${{red}};
 }
+'''

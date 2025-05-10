@@ -1,3 +1,5 @@
+path = "/home/pagedmov/dotfiles/config/kitty/kitty.conf"
+content = '''
 # vim:fileencoding=utf-8:foldmethod=marker
 
 #: Fonts {{{
@@ -325,7 +327,7 @@ mouse_hide_wait 3.0
 #: robustly with the ever-changing sea of bugs that is Cocoa is too
 #: much effort.
 
-url_color #3F539C
+url_color ${{blue}}
 url_style dotted
 
 #: The color and style for highlighting URLs on mouse-over. url_style
@@ -1011,34 +1013,34 @@ tab_bar_margin_color none
 
 # Base16 Ayu Dark - kitty color config
 # Scheme by Khue Nguyen &lt;Z5483Y@gmail.com&gt;
-background #0e0f0c
-foreground #CCCCCC
-selection_background #9C903F
-selection_foreground #0e0f0c
-url_color #3F539C
-cursor #CCCCCC
-active_border_color #CCCCCC
-inactive_border_color #0e0f0c
+background ${{bg_alt}}
+foreground ${{fg}}
+selection_background ${{selection}}
+selection_foreground ${{bg_alt}}
+url_color ${{blue}}
+cursor ${{fg}}
+active_border_color ${{fg}}
+inactive_border_color ${{bg_alt}}
 
 # normal
-color0 #20251B
-color1 #9C3F3F
-color2 #559C3F
-color3 #9C943F
-color4 #3F539C
-color5 #9C3F9C
-color6 #3F9C96
-color7 #CCCCCC
+color0 ${{comment}}
+color1 ${{red}}
+color2 ${{green}}
+color3 ${{yellow}}
+color4 ${{blue}}
+color5 ${{magenta}}
+color6 ${{cyan}}
+color7 ${{fg}}
 
 # bright
-color8 #20251B
-color9 #9C6C3F
-color10 #0e0f0c
-color11 #9C903F
-color12 #81807D
-color13 #CCCCCC
-color14 #9c583f
-color15 #AAAAAA
+color8 ${{comment}}
+color9 ${{orange}}
+color10 ${{bg_alt}}
+color11 ${{selection}}
+color12 ${{fg_alt}}
+color13 ${{fg}}
+color14 ${{warning}}
+color15 ${{base06}}
 
 #: }}}
 
@@ -2169,3 +2171,4 @@ map cmd+q quit
 
 #: }}}
 
+'''
