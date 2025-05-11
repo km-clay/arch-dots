@@ -64,7 +64,7 @@ impl Colors {
 
 fn main() {
 	let repl_pattern = Regex::new(r"\$\{\{([a-zA-Z0-9_]+)\}\}").unwrap();
-	let colors_raw = fs::read_to_string("/home/pagedmov/dotfiles/assets/ogsteam.toml").unwrap();
+	let colors_raw = fs::read_to_string("/home/pagedmov/dotfiles/assets/base16.toml").unwrap();
 	let colors: Colors = toml::from_str(&colors_raw).unwrap();
 	let paths = fs::read_dir("/home/pagedmov/dotfiles/templates").unwrap();
 	for path in paths {
