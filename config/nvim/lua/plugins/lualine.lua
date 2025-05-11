@@ -7,21 +7,21 @@ return {
     -- Color table, conditions, ins_left/right setup
 		local colors = {
 			base00 = "#3D4636", -- Background
-			base01 = "#0e0f0c", -- Lighter background (status bars)
+			base01 = "#20251B", -- Lighter background (status bars)
 			base02 = "#9C903F", -- Selection background
-			base03 = "#20251B", -- Comments, invisibles, line highlighting
+			base03 = "#0e0f0c", -- Comments, invisibles, line highlighting
 			base04 = "#81807D", -- Dark foreground (status bars)
 			base05 = "#CCCCCC", -- Default foreground, caret, delimiters, operators
 			base06 = "#AAAAAA", -- Light foreground (not often used)
 			base07 = "#666666", -- Light background (not often used)
-			base08 = "#9C3F3F", -- Variables, XML tags, markup link text, error messages
-			base09 = "#9C6C3F", -- Integers, boolean, constants, attributes
-			base0A = "#9C943F", -- Classes, markup bold, search text background
-			base0B = "#559C3F", -- Strings, inherited class, markup code, diff inserted
-			base0C = "#3F9C96", -- Support, regular expressions, escape characters
-			base0D = "#3F539C", -- Functions, methods
-			base0E = "#9C3F9C", -- Keywords, storage, selector, markup italic, diff changed
-			base0F = "#9c583f", -- Deprecated, opening/closing embedded language tags
+			base08 = "#BF5050", -- Variables, XML tags, markup link text, error messages
+			base09 = "#C4844A", -- Integers, boolean, constants, attributes
+			base0A = "#CFC75A", -- Classes, markup bold, search text background
+			base0B = "#6FC753", -- Strings, inherited class, markup code, diff inserted
+			base0C = "#50CFC6", -- Support, regular expressions, escape characters
+			base0D = "#5066C4", -- Functions, methods
+			base0E = "#C550C5", -- Keywords, storage, selector, markup italic, diff changed
+			base0F = "#C46D4F", -- Deprecated, opening/closing embedded language tags
 		}
 
     local conditions = {

@@ -9,9 +9,9 @@ return {
     -- Color table, conditions, ins_left/right setup
 		local colors = {
 			base00 = "${{base00}}", -- Background
-			base01 = "${{base01}}", -- Lighter background (status bars)
+			base01 = "${{base03}}", -- Lighter background (status bars)
 			base02 = "${{base02}}", -- Selection background
-			base03 = "${{base03}}", -- Comments, invisibles, line highlighting
+			base03 = "${{base01}}", -- Comments, invisibles, line highlighting
 			base04 = "${{base04}}", -- Dark foreground (status bars)
 			base05 = "${{base05}}", -- Default foreground, caret, delimiters, operators
 			base06 = "${{base06}}", -- Light foreground (not often used)

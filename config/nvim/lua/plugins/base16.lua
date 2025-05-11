@@ -13,14 +13,14 @@ return {
           base05 = "#CCCCCC",
           base06 = "#AAAAAA",
           base07 = "#666666",
-          base08 = "#9C3F3F",
-          base09 = "#9C6C3F",
-          base0A = "#9C943F",
-          base0B = "#559C3F",
-          base0C = "#3F9C96",
-          base0D = "#3F539C",
-          base0E = "#9C3F9C",
-          base0F = "#9c583f",
+          base08 = "#BF5050",
+          base09 = "#C4844A",
+          base0A = "#CFC75A",
+          base0B = "#6FC753",
+          base0C = "#50CFC6",
+          base0D = "#5066C4",
+          base0E = "#C550C5",
+          base0F = "#C46D4F",
 			})
 		end
 	}

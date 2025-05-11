@@ -11,9 +11,9 @@ content = '''
     "name": "horBar",
 
     "modules-left": [
-	"clock",
-	"hyprland/workspaces",
-	"tray"
+			"clock",
+			"hyprland/workspaces",
+			"tray"
     ],
 
     "modules-center": [
@@ -21,34 +21,24 @@ content = '''
 
     "modules-right": [
     	"cpu",
-	"memory",
-        "pulseaudio",
-	"custom/updates",
-	"network"
+			"memory",
+			"pulseaudio",
+			"custom/updates",
+			"network"
     ],
 
-    "idle_inhibitor": {
-    	"format": "[ {icon} ]",
-	"tooltip-format-activated": "IDLE_STATUS: [ ACTIVE ]",
-	"tooltip-format-deactivated": "IDLE_STATUS: [ <span color='${{red}}'>NON_ACTIVE</span> ]",
-	"format-icons": {
-		"activated": "ACT",
-		"deactivated": "<span color='${{red}}'>XXX</span>"
-	}
-    },
-    
     "tray": {
-        "icon-size": 14,
-	"show-passive-items": true,
-        "spacing": 14,
-	"reverse-direction": true
+			"icon-size": 14,
+			"show-passive-items": true,
+			"spacing": 14,
+			"reverse-direction": true
     },
 
     "memory": {
     	"interval": 20,
-	"format": "MEM: [ <span color='${{selection}}'>{icon}</span> ] <span size='8pt'>{percentage}%</span>",
-	"tooltip-format": "MEM_TOT\t: {total}GiB\nSWP_TOT\t: {swapTotal}GiB\n\nMEM_USD\t: {used:0.1f}GiB\nSWP_USD\t: {swapUsed:0.1f}GiB",
-	"format-icons": ["░░░░░░░░", "█░░░░░░░", "██░░░░░░", "███░░░░░", "████░░░░", "█████░░░", "██████░░", "<span color='${{red}}'>!!!!!!!!</span>", "<span color='${{red}}'>CRITICAL</span>"]
+			"format": "MEM: [ <span color='${{selection}}'>{icon}</span> ] <span size='8pt'>{percentage}%</span>",
+			"tooltip-format": "MEM_TOT\t: {total}GiB\nSWP_TOT\t: {swapTotal}GiB\n\nMEM_USD\t: {used:0.1f}GiB\nSWP_USD\t: {swapUsed:0.1f}GiB",
+			"format-icons": ["░░░░░░░░", "█░░░░░░░", "██░░░░░░", "███░░░░░", "████░░░░", "█████░░░", "██████░░", "<span color='${{red}}'>!!!!!!!!</span>", "<span color='${{red}}'>CRITICAL</span>"]
     },
 
 		"hyprland/workspaces": {
