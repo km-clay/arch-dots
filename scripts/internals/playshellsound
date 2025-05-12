@@ -1,0 +1,9 @@
+if [ $# -ne 1 ]; then
+	echo "Usage: playshellsound <path/to/sound>"
+	exit 1
+fi
+if [ "$SOUNDS_ENABLED" = "true" ]; then
+	runbg aplay "$1"
+else
+	exit 1
+fi

@@ -79,7 +79,7 @@ return {
 			function()
 				return '▊'
 			end,
-			color = { fg = colors.base09 }, -- Sets highlighting of component
+			color = { fg = "#9C903F" }, -- Sets highlighting of component
 			padding = { left = 0, right = 1 }, -- We don't need space before this
 		}
 
@@ -176,7 +176,7 @@ return {
 			function()
 				return '▊'
 			end,
-			color = { fg = colors.base09 },
+			color = { fg = "#9C903F" },
 			padding = { left = 1 },
 		}
 
