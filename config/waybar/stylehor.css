@@ -95,9 +95,9 @@ tooltip {
 }
 
 #battery.warning:not(.charging) {
-    color: #CFC75A;
+    color: #9C903F;
 }
 
 #battery.critical:not(.charging) {
-    color: #BF5050;
+    color: #7D3232;
 }

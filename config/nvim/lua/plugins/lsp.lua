@@ -21,6 +21,17 @@ return {
 		init = function()
 			vim.g.coq_settings = {
 				auto_start = true,
+				display = {
+					preview = {
+						border = "double",
+					},
+					pum = {
+						fast_close = false,
+					},
+					statusline = {
+						helo = false
+					},
+				},
 			}
 		end,
     config = function()
