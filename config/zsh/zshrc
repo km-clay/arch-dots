@@ -1,0 +1,18 @@
+export ZSH_SOURCE="$HOME/dotfiles/config/zsh/src"
+
+source "$ZSH_SOURCE/export.zsh"
+source "$ZSH_SOURCE/alias.zsh"
+source "$ZSH_SOURCE/plugins.zsh"
+source "$ZSH_SOURCE/shopt.zsh"
+source "$ZSH_SOURCE/function.zsh"
+
+if [ ! -e "$HOME"/.zsh_history ]; then
+	touch "$HOME"/.zsh_history
+	chmod 600 "$HOME"/.zsh_history
+fi
+
+bindkey -v
+type starship_zle-keymap-select >/dev/null || \
+{
+	eval "$(starship init zsh)"
+}
