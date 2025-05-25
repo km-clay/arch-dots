@@ -6,22 +6,22 @@ return {
 
     -- Color table, conditions, ins_left/right setup
 		local colors = {
-			base00 = "#3D4636", -- Background
-			base01 = "#3D4636", -- Lighter background (status bars)
-			base02 = "#9C903F", -- Selection background
-			base03 = "#0e0f0c", -- Comments, invisibles, line highlighting
-			base04 = "#A3A3A3", -- Dark foreground (status bars)
-			base05 = "#CCCCCC", -- Default foreground, caret, delimiters, operators
-			base06 = "#AAAAAA", -- Light foreground (not often used)
-			base07 = "#666666", -- Light background (not often used)
-			base08 = "#7D3232", -- Variables, XML tags, markup link text, error messages
-			base09 = "#9C7A3F", -- Integers, boolean, constants, attributes
-			base0A = "#9C903F", -- Classes, markup bold, search text background
-			base0B = "#7A9C3F", -- Strings, inherited class, markup code, diff inserted
-			base0C = "#3F9C62", -- Support, regular expressions, escape characters
-			base0D = "#3F7A9C", -- Functions, methods
-			base0E = "#903F9C", -- Keywords, storage, selector, markup italic, diff changed
-			base0F = "#364546", -- Deprecated, opening/closing embedded language tags
+			base00 = "0F1419",
+			base01 = "131721",
+			base02 = "272D38",
+			base03 = "3E4B59",
+			base04 = "BFBDB6",
+			base05 = "E6E1CF",
+			base06 = "E6E1CF",
+			base07 = "F3F4F5",
+			base08 = "F07178",
+			base09 = "FF8F40",
+			base0A = "FFB454",
+			base0B = "B8CC52",
+			base0C = "95E6CB",
+			base0D = "59C2FF",
+			base0E = "D2A6FF",
+			base0F = "E6B673",
 		}
 
     local conditions = {

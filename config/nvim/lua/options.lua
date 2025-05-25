@@ -9,6 +9,8 @@ end
 
 vim.g.vimwiki_list = {{path = '~/vimwiki/', syntax = 'markdown', ext = '.md'}}
 
+vim.cmd('colorscheme base16-ayu-dark')
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.hlsearch = true
