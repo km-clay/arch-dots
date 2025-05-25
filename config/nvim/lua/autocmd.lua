@@ -1,5 +1,9 @@
 local autocmd = vim.api.nvim_create_autocmd
 
+local function augroup(name)
+  return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+end
+
 -- Save folds, view, etc. when leaving a buffer window
 autocmd("BufWinLeave", {
   pattern = "*",
@@ -19,4 +23,13 @@ autocmd("VimEnter", {
   pattern = "*",
   command = "silent! FloatermNew --name=def_term --width=0.8 --height=0.8 --wintype=topright --silent",
   desc = "Start the floaterm window",
+})
+
+autocmd("VimEnter", {
+	group = augroup("autoupdate"),
+	callback = function()
+		if require("lazy.status").has_updates then
+			require("lazy").update({ show = false, })
+		end
+	end,
 })
