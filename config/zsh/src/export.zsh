@@ -11,7 +11,6 @@ export FZF_DEFAULT_COMMAND="fd"
 export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
 export DOTS="$HOME/dotfiles/config"
 export PATH="$PATH:$HOME/.local/bin/:$HOME/dotfiles/scripts:$HOME/dotfiles/scripts/internals:$HOME/.userpath/"
-export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 export INPUT_METHOD=fcitx

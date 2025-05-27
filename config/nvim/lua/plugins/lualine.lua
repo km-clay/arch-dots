@@ -6,22 +6,22 @@ return {
 
     -- Color table, conditions, ins_left/right setup
 		local colors = {
-			base00 = "0F1419",
-			base01 = "131721",
-			base02 = "272D38",
-			base03 = "3E4B59",
-			base04 = "BFBDB6",
-			base05 = "E6E1CF",
-			base06 = "E6E1CF",
-			base07 = "F3F4F5",
-			base08 = "F07178",
-			base09 = "FF8F40",
-			base0A = "FFB454",
-			base0B = "B8CC52",
-			base0C = "95E6CB",
-			base0D = "59C2FF",
-			base0E = "D2A6FF",
-			base0F = "E6B673",
+			base00 = "#0F1419", -- Background
+			base01 = "#0F1419", -- Lighter background (status bars)
+			base02 = "#272D38", -- Selection background
+			base03 = "#131721", -- Comments, invisibles, line highlighting
+			base04 = "#BFBDB6", -- Dark foreground (status bars)
+			base05 = "#E6E1CF", -- Default foreground, caret, delimiters, operators
+			base06 = "#E6E1CF", -- Light foreground (not often used)
+			base07 = "#F3F4F5", -- Light background (not often used)
+			base08 = "#F07178", -- Variables, XML tags, markup link text, error messages
+			base09 = "#FF8F40", -- Integers, boolean, constants, attributes
+			base0A = "#FFB454", -- Classes, markup bold, search text background
+			base0B = "#B8CC52", -- Strings, inherited class, markup code, diff inserted
+			base0C = "#95E6CB", -- Support, regular expressions, escape characters
+			base0D = "#59C2FF", -- Functions, methods
+			base0E = "#D2A6FF", -- Keywords, storage, selector, markup italic, diff changed
+			base0F = "#E6B673", -- Deprecated, opening/closing embedded language tags
 		}
 
     local conditions = {
@@ -79,7 +79,7 @@ return {
 			function()
 				return '▊'
 			end,
-			color = { fg = "#9C903F" }, -- Sets highlighting of component
+			color = { fg = "#272D38" }, -- Sets highlighting of component
 			padding = { left = 0, right = 1 }, -- We don't need space before this
 		}
 
@@ -176,7 +176,7 @@ return {
 			function()
 				return '▊'
 			end,
-			color = { fg = "#9C903F" },
+			color = { fg = "#272D38" },
 			padding = { left = 1 },
 		}
 

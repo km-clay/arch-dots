@@ -34,9 +34,9 @@
 
     "memory": {
     	"interval": 20,
-			"format": "MEM: [ <span color='#9C903F'>{icon}</span> ] <span size='8pt'>{percentage}%</span>",
+			"format": "MEM: [ <span color='#272D38'>{icon}</span> ] <span size='8pt'>{percentage}%</span>",
 			"tooltip-format": "MEM_TOT\t: {total}GiB\nSWP_TOT\t: {swapTotal}GiB\n\nMEM_USD\t: {used:0.1f}GiB\nSWP_USD\t: {swapUsed:0.1f}GiB",
-			"format-icons": ["░░░░░░░░", "█░░░░░░░", "██░░░░░░", "███░░░░░", "████░░░░", "█████░░░", "██████░░", "<span color='#7D3232'>!!!!!!!!</span>", "<span color='#7D3232'>CRITICAL</span>"]
+			"format-icons": ["░░░░░░░░", "█░░░░░░░", "██░░░░░░", "███░░░░░", "████░░░░", "█████░░░", "██████░░", "<span color='#F07178'>!!!!!!!!</span>", "<span color='#F07178'>CRITICAL</span>"]
     },
 
 		"hyprland/workspaces": {
@@ -72,9 +72,9 @@
 
     "cpu": {
     	"interval": 1,
-	"format": "CPU: [ <span color='#9C903F'>{icon}</span> ] <span size='8pt'>{usage}%</span>",
+	"format": "CPU: [ <span color='#272D38'>{icon}</span> ] <span size='8pt'>{usage}%</span>",
 	"tooltip": true,
-	"format-icons": ["░░░░░░░░", "█░░░░░░░", "██░░░░░░", "███░░░░░", "████░░░░", "█████░░░", "██████░░", "<span color='#9C903F'>!!!!!!!!</span>", "<span color='#9C903F'>CRITICAL</span>"]
+	"format-icons": ["░░░░░░░░", "█░░░░░░░", "██░░░░░░", "███░░░░░", "████░░░░", "█████░░░", "██████░░", "<span color='#272D38'>!!!!!!!!</span>", "<span color='#272D38'>CRITICAL</span>"]
     },
 
     "clock": {
@@ -89,7 +89,7 @@
 				"days": "<span size='16pt'><b>{}</b></span>", 
 				"weeks": "<span size='16pt'><b>{}</b></span>", 
 				"weekdays": "<span size='16pt'><b>{}</b></span>", 
-				"today": "<span color='#CCCCCC'><b><u>{}</u></b></span>"
+				"today": "<span color='#E6E1CF'><b><u>{}</u></b></span>"
 		}
 		},
 	"actions": {
@@ -99,10 +99,10 @@
     },
 
     "pulseaudio": {
-        "format": "VOL: [ <span color='#9C903F'>{icon}</span> ] <span size='8pt'>{volume}%</span>",
+        "format": "VOL: [ <span color='#272D38'>{icon}</span> ] <span size='8pt'>{volume}%</span>",
         "tooltip": true,
 	"tooltip-format": "DEVICE: {desc}",
-        "format-muted": "VOL: <span color='#7D3232'>[ XXXXXXXX ] <span size='8pt'>{volume}%</span></span>",
+        "format-muted": "VOL: <span color='#F07178'>[ XXXXXXXX ] <span size='8pt'>{volume}%</span></span>",
         "on-click": "if [ $(pamixer --get-mute) == true ]; then pamixer --unmute; else pamixer --mute; fi",
         "on-scroll-up": "pamixer -i 2",
         "on-scroll-down": "pamixer -d 2",
@@ -112,11 +112,11 @@
     },
 
     "network": {
-	"format-wifi": "[ <span color='#7A9C3F'>ONLINE</span> ]",
-	"format-ethernet": "[ <span color='#7A9C3F'>ONLINE</span> ]",
+	"format-wifi": "[ <span color='#B8CC52'>ONLINE</span> ]",
+	"format-ethernet": "[ <span color='#B8CC52'>ONLINE</span> ]",
 	"tooltip-format-wifi": "ESSID\t: {essid}\nSTRNGTH\t: {signaldBm}\n\nADDRESS\t: {ipaddr}\nGATE\t: {gwaddr}\nMASK\t: {netmask} | {cidr}",
 	"tooltip-format-ethernet": "IFNAME: {ifname}\nADDRESS: {ipaddr}",
-	"format-disconnected": "[ <span color='#7D3232'>XXXXXX</span> ]",
+	"format-disconnected": "[ <span color='#F07178'>XXXXXX</span> ]",
 	"on-click": "nm-connection-editor"
     },
 
@@ -130,15 +130,15 @@
 	"format-charging": "BAT: [ {icon} ] <span size='8pt'>CHRG</span>",
 	"format-plugged": "BAT: [ {icon} ] <span size='8pt'>PLUG</span>",
 	"tooltip-format": "BATTERY: {power}W\nSTATUS: {timeTo}\nCYCLES: {cycles}\nHEALTH: {health}",
-	"format-icons": ["<span color='#7D3232'>CRITICAL", "<span color='#7D3232'>!!!!!!!!</span>", "██░░░░░░", "███░░░░░", "████░░░░", "█████░░░", "██████░░", "███████░", "████████"]
+	"format-icons": ["<span color='#F07178'>CRITICAL", "<span color='#F07178'>!!!!!!!!</span>", "██░░░░░░", "███░░░░░", "████░░░░", "█████░░░", "██████░░", "███████░", "████████"]
     },
 
     "custom/updates": {
     	"format": "{} [ {icon} ]",
 	"return-type": "json",
 	"format-icons": {
-		"has-updates": "<span color='#7D3232'>!!!!!!</span>",
-		"updated": "<span color='#7A9C3F'>UPDATE</span>"
+		"has-updates": "<span color='#F07178'>!!!!!!</span>",
+		"updated": "<span color='#B8CC52'>UPDATE</span>"
 	},
 	"exec-if": "which waybar-module-pacman-updates",
 	"exec": "waybar-module-pacman-updates --no-zero-output"

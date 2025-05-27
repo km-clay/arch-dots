@@ -9,36 +9,36 @@
 }
 
 window#waybar {
-    color: #CCCCCC;
-    background: #3D4636;
+    color: #E6E1CF;
+    background: #0F1419;
 }
 
 tooltip {
-    background: #3D4636;
+    background: #0F1419;
 }
 
 #workspaces button {
-    color: #CCCCCC;
+    color: #E6E1CF;
 }
 
 #workspaces button.active {
-    color: #9C903F;
-    background: #3D4636;
+    color: #272D38;
+    background: #0F1419;
 }
 
 #workspaces button.focused {
     color: #9D9140;
-    background: #3D4636;
+    background: #0F1419;
 }
 
 #workspaces button.urgent {
-    color: #CCCCCC;
-    background: #3D4636;
+    color: #E6E1CF;
+    background: #0F1419;
 }
 
 #workspaces button:hover {
-    background: #CCCCCC;
-    color: #3D4636;
+    background: #E6E1CF;
+    color: #0F1419;
 }
 
 #custom-language,
@@ -63,11 +63,11 @@ tooltip {
 }
 
 #workspaces {
-    color: #CCCCCC;
+    color: #E6E1CF;
 }
 
 #window {
-    color: #CCCCCC;
+    color: #E6E1CF;
 }
 
 .verBar#clock {
@@ -75,29 +75,29 @@ tooltip {
 }
 
 .horBar#clock {
-    color: #CCCCCC;
+    color: #E6E1CF;
 }
 
 #network {
-    color: #CCCCCC;
+    color: #E6E1CF;
 }
 
 #pulseaudio {
-    color: #CCCCCC;
+    color: #E6E1CF;
 }
 
 #pulseaudio.microphone {
-    color: #CCCCCC;
+    color: #E6E1CF;
 }
 
 #battery {
-    color: #CCCCCC;
+    color: #E6E1CF;
 }
 
 #battery.warning:not(.charging) {
-    color: #9C903F;
+    color: #FFB454;
 }
 
 #battery.critical:not(.charging) {
-    color: #7D3232;
+    color: #F07178;
 }
