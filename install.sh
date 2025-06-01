@@ -1,16 +1,21 @@
 echo "Moving to $HOME and cloning dotfiles repo"
-if ! command git &> /dev/null; then
+if ! command -v git &> /dev/null; then
 	echo "You don't have git"
 	exit 1
 fi
 
 cd "$HOME"
+if [ -e ./dotfiles]; then
+	echo "./dotfiles already exists, exiting..."
+	exit 1
+fi
 mkdir -p ./.config
 
 git clone "https://github.com/km-clay/arch-dots" ./dotfiles
 cd dotfiles
+mkdir -p backup
 
-if [[ ! -e ./config || ! -d .config ]]; then
+if [[ ! -e ./config || ! -d ./config ]]; then
 	echo "./config does not exist, or is not a directory. exiting"
 	exit 1
 fi
@@ -22,8 +27,8 @@ fi
 
 if ! which yay &> /dev/null; then
 	echo "Installing yay..."
-	(sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si); command rm -rfv yay
-	echo "installed yay"
+	(sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si); [ -d yay ] && rm -rfv yay
+	echo "done"
 fi
 echo "installing packages..."
 xargs -a ./pacmanifest.txt yay -S --needed
@@ -61,14 +66,19 @@ done
 echo
 echo -en "continue? \e[32my\e[0m/\e[31mn\e[0m "
 
-while read -r line; do
-	if [ "$line" = "y" ]; then
-		echo "moving..."
-		break
-	elif [ "$line" = "n" ]; then
-		echo "exiting..."
-		exit 0
-	fi
+while read -r answer; do
+	case "$answer" in 
+		y)
+			break
+			;;
+		n)
+			echo "exiting..."
+			exit 0
+			;;
+		*)
+			echo -en "continue? \e[32my\e[0m/\e[31mn\e[0m "
+			;;
+	esac
 done
 
 for file in ./config/*; do
@@ -111,7 +121,7 @@ for file in ./config/*; do
 		fi
 	fi
 	echo -e "symlinking \e[36m$(realpath "$file")\e[0m to \e[36m$config_dir\e[0m"
-	ln -s $(realpath "$file") "$config_dir"
+	ln -s "$(realpath "$file")" "$config_dir"
 done
 
 echo "Installing Rust..."
@@ -120,9 +130,9 @@ if ! command -v rustup &> /dev/null; then
     source "$HOME/.cargo/env"
 
 		# Set toolchain, install components
-		rustup install nightly
-		rustup default nightly
-		rustup component add clippy --toolchain nightly
+		rustup install nightly && \
+		rustup default nightly && \
+		rustup component add clippy --toolchain nightly && \
 		rustup component add rust-analyzer --toolchain nightly
 else
     echo "Rust is already installed"
@@ -133,7 +143,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 
 echo "Installing oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+KEEP_ZSHRC=yes CHSH=no RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ZSH="$HOME/.oh-my-zsh"
 PLUGINS="$ZSH/custom/plugins"
 echo "Installing oh-my-zsh plugins"
@@ -142,7 +152,28 @@ git clone "https://github.com/zsh-users/zsh-autosuggestions" "$PLUGINS/zsh-autos
 git clone "https://github.com/zsh-users/zsh-syntax-highlighting" "$PLUGINS/zsh-syntax-highlighting"
 git clone "https://github.com/Aloxaf/fzf-tab" "$PLUGINS/fzf-tab"
 git clone "https://github.com/km-clay/cmdstat" "$PLUGINS/cmdstat"
-cd cmdstat && cargo build --release && install -Dm755 target/release/cmdstat ~/.local/bin/ && [ -e plugin/cmdstat.plugin.zsh ] && mv plugin/cmdstat.plugin.zsh .
+(cd cmdstat && cargo build --release && install -Dm755 target/release/cmdstat ~/.local/bin/ && [ -e plugin/cmdstat.plugin.zsh ] && mv plugin/cmdstat.plugin.zsh .)
+
+cd $HOME/dotfiles
+echo -en "Do you want to make a new branch for this machine? \e[32my\e[0m/\e[31mn\e[0m "
+
+while read -r answer; do
+	case "$answer" in
+		y)
+			echo -n "Name it: "
+			read -r name
+			git checkout -b "$name"
+			break
+			;;
+		n)
+			echo "exiting..."
+			exit 0
+			;;
+		*)
+			echo -en "Do you want to make a new branch for this machine? \e[32my\e[0m/\e[31mn\e[0m "
+			;;
+	esac
+done
 
 echo "That's all folks"
 exit 0
