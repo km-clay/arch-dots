@@ -25,8 +25,7 @@ if [[ ! -e ./pacmanifest.txt ]]; then
 	exit 1
 fi
 
-sudo sed -i.bak 's/^#Color/Color/' /etc/pacman.conf
-sudo sed -i.bak 's/^#ILoveCandy/ILoveCandy/' /etc/pacman.conf
+sudo sed -i "s/^#Color/Color\nILoveCandy/" /etc/pacman.conf
 
 if ! which yay &> /dev/null; then
 	echo "Installing yay..."
