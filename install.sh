@@ -25,6 +25,12 @@ if [[ ! -e ./pacmanifest.txt ]]; then
 	exit 1
 fi
 
+if ! which yay &> /dev/null; then
+	echo "Installing yay..."
+	(sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si); [ -d yay ] && rm -rfv yay
+	echo "done"
+fi
+
 echo "Installing Rust..."
 if ! command -v rustup &> /dev/null; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -42,13 +48,8 @@ fi
 # Ensure env is loaded even in a non-login shell
 export PATH="$HOME/.cargo/bin:$PATH"
 
-if ! which yay &> /dev/null; then
-	echo "Installing yay..."
-	(sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si); [ -d yay ] && rm -rfv yay
-	echo "done"
-fi
 echo "installing packages..."
-xargs -a ./pacmanifest.txt yay -S --needed
+xargs -a pacmanifest.txt yay -S --needed --noconfirm --nodiffmenu --nocleanmenu --removemake
 echo "done"
 
 echo "The files in ./config are about to be symlinked to ~/.config"
@@ -168,8 +169,7 @@ while read -r answer; do
 			break
 			;;
 		n)
-			echo "exiting..."
-			exit 0
+			break
 			;;
 		*)
 			echo -en "Do you want to make a new branch for this machine? \e[32my\e[0m/\e[31mn\e[0m "
@@ -177,5 +177,9 @@ while read -r answer; do
 	esac
 done
 
+chsh -s $(which zsh)
+
+echo
 echo "That's all folks"
+echo "You may need to alter the monitor configurations in config/hypr/hyprland.conf and config/waybar/{stylehor.css,config_horizontal}
 exit 0

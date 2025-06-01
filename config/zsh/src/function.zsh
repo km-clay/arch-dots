@@ -44,25 +44,3 @@ gitpush_sfx() {
 		return 1
 	fi
 }
-
-sourcemod() {
-	if [[ -z "$ZSH_SOURCE" ]]; then
-		echo "ZSH_SOURCE env var is unset"
-		return 1
-	fi
-	if [[ $# -eq 0 ]]; then
-		echo "Usage: sourcemod <module_name>"
-		return 0
-	fi
-  local mod="$ZSH_SOURCE/modules/$1.zsh"
-  if [[ -f "$mod" ]]; then
-    if [[ -z "${LOADED_MODULES[$1]}" ]]; then
-      source "$mod"
-      LOADED_MODULES[$1]=1
-    else
-      echo "Module '$1' already loaded."
-    fi
-  else
-    echo "Module '$1' not found in $ZSH_SOURCE/modules/"
-  fi
-}
