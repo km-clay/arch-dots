@@ -25,6 +25,23 @@ if [[ ! -e ./pacmanifest.txt ]]; then
 	exit 1
 fi
 
+echo "Installing Rust..."
+if ! command -v rustup &> /dev/null; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    source "$HOME/.cargo/env"
+
+		# Set toolchain, install components
+		rustup install nightly && \
+		rustup default nightly && \
+		rustup component add clippy --toolchain nightly && \
+		rustup component add rust-analyzer --toolchain nightly
+else
+    echo "Rust is already installed"
+fi
+
+# Ensure env is loaded even in a non-login shell
+export PATH="$HOME/.cargo/bin:$PATH"
+
 if ! which yay &> /dev/null; then
 	echo "Installing yay..."
 	(sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si); [ -d yay ] && rm -rfv yay
@@ -109,6 +126,8 @@ for file in ./config/*; do
 			fi
 		fi
 		echo -e "symlinking \e[36m$(realpath "$file")/fernrc\e[0m to \e[36m$HOME/.fernrc\e[0m"
+		echo -e "\e[35mupdating\e[0m zsh src directory to \e[36m$(realpath "$file")/src\e[0m"
+		sed -i "s#^src_folder=\".*\"\$#src_folder=\"$(realpath "$file")/src\"#" "$file/fernrc"
 		ln -s "$(realpath "$file")/fernrc" "$HOME/.fernrc"
 		continue
 	elif [[ -e "$config_dir" ]]; then
@@ -124,23 +143,6 @@ for file in ./config/*; do
 	ln -s "$(realpath "$file")" "$config_dir"
 done
 
-echo "Installing Rust..."
-if ! command -v rustup &> /dev/null; then
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-    source "$HOME/.cargo/env"
-
-		# Set toolchain, install components
-		rustup install nightly && \
-		rustup default nightly && \
-		rustup component add clippy --toolchain nightly && \
-		rustup component add rust-analyzer --toolchain nightly
-else
-    echo "Rust is already installed"
-fi
-
-# Ensure env is loaded even in a non-login shell
-export PATH="$HOME/.cargo/bin:$PATH"
-
 
 echo "Installing oh-my-zsh"
 KEEP_ZSHRC=yes CHSH=no RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -152,7 +154,7 @@ git clone "https://github.com/zsh-users/zsh-autosuggestions" "$PLUGINS/zsh-autos
 git clone "https://github.com/zsh-users/zsh-syntax-highlighting" "$PLUGINS/zsh-syntax-highlighting"
 git clone "https://github.com/Aloxaf/fzf-tab" "$PLUGINS/fzf-tab"
 git clone "https://github.com/km-clay/cmdstat" "$PLUGINS/cmdstat"
-(cd cmdstat && cargo build --release && install -Dm755 target/release/cmdstat ~/.local/bin/ && [ -e plugin/cmdstat.plugin.zsh ] && mv plugin/cmdstat.plugin.zsh .)
+(cd "$PLUGINS"/cmdstat && cargo build --release && install -Dm755 target/release/cmdstat ~/.local/bin/)
 
 cd $HOME/dotfiles
 echo -en "Do you want to make a new branch for this machine? \e[32my\e[0m/\e[31mn\e[0m "

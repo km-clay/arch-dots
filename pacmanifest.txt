@@ -169,7 +169,7 @@ uhk-agent-appimage
 unzip
 vesktop
 vlc
-waybar-cava
+waybar
 webkit2gtk
 webkit2gtk-4.1
 wget
