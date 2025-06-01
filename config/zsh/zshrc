@@ -1,4 +1,4 @@
-export ZSH_SOURCE="$HOME/dotfiles/config/zsh/src"
+export ZSH_SOURCE="/home/pagedmov/dotfiles/config/zsh/src"
 
 source "$ZSH_SOURCE/export.zsh"
 source "$ZSH_SOURCE/alias.zsh"
