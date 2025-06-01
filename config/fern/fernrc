@@ -1,0 +1,5 @@
+src_folder="$HOME/dotfiles/config/fern/src"
+
+source $src_folder/alias.sh
+source $src_folder/export.sh
+source $src_folder/function.sh
