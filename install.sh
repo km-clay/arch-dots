@@ -30,6 +30,7 @@ sudo sed -i "s/^#Color/Color\nILoveCandy/" /etc/pacman.conf
 if ! which yay &> /dev/null; then
 	echo "Installing yay..."
 	(sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si); [ -d yay ] && rm -rfv yay
+ yay --save --answerclean None --answerdiff None --removemake
 	echo "done"
 fi
 
@@ -51,7 +52,7 @@ fi
 export PATH="$HOME/.cargo/bin:$PATH"
 
 echo "installing packages..."
-xargs -a pacmanifest.txt yay -S --needed --noconfirm --nodiffmenu --nocleanmenu --removemake
+xargs -a pacmanifest.txt yay -S --needed
 echo "done"
 
 echo "The files in ./config are about to be symlinked to ~/.config"
