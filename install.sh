@@ -1,11 +1,11 @@
 echo "Moving to $HOME and cloning dotfiles repo"
-if ! command -v git &> /dev/null; then
+if ! which git &> /dev/null; then
 	echo "You don't have git"
 	exit 1
 fi
 
 cd "$HOME"
-if [ -e ./dotfiles]; then
+if [ -e ./dotfiles ]; then
 	echo "./dotfiles already exists, exiting..."
 	exit 1
 fi
@@ -25,6 +25,9 @@ if [[ ! -e ./pacmanifest.txt ]]; then
 	exit 1
 fi
 
+sudo sed -i.bak 's/^#Color/Color/' /etc/pacman.conf
+sudo sed -i.bak 's/^#ILoveCandy/ILoveCandy/' /etc/pacman.conf
+
 if ! which yay &> /dev/null; then
 	echo "Installing yay..."
 	(sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si); [ -d yay ] && rm -rfv yay
@@ -32,7 +35,7 @@ if ! which yay &> /dev/null; then
 fi
 
 echo "Installing Rust..."
-if ! command -v rustup &> /dev/null; then
+if ! which rustup &> /dev/null; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
     source "$HOME/.cargo/env"
 
@@ -151,11 +154,12 @@ ZSH="$HOME/.oh-my-zsh"
 PLUGINS="$ZSH/custom/plugins"
 echo "Installing oh-my-zsh plugins"
 mkdir -p "$PLUGINS"
+mkdir -p ~/.local/bin
 git clone "https://github.com/zsh-users/zsh-autosuggestions" "$PLUGINS/zsh-autosuggestions"
 git clone "https://github.com/zsh-users/zsh-syntax-highlighting" "$PLUGINS/zsh-syntax-highlighting"
 git clone "https://github.com/Aloxaf/fzf-tab" "$PLUGINS/fzf-tab"
 git clone "https://github.com/km-clay/cmdstat" "$PLUGINS/cmdstat"
-(cd "$PLUGINS"/cmdstat && cargo build --release && install -Dm755 target/release/cmdstat ~/.local/bin/)
+(cd "$PLUGINS"/cmdstat && cargo build --release && install -Dm755 target/release/cmdstat ~/.local/bin/cmdstat)
 
 cd $HOME/dotfiles
 echo -en "Do you want to make a new branch for this machine? \e[32my\e[0m/\e[31mn\e[0m "
@@ -181,5 +185,5 @@ chsh -s $(which zsh)
 
 echo
 echo "That's all folks"
-echo "You may need to alter the monitor configurations in config/hypr/hyprland.conf and config/waybar/{stylehor.css,config_horizontal}
+echo "You may need to alter the monitor configurations in config/hypr/hyprland.conf and config/waybar/{stylehor.css,config_horizontal}"
 exit 0

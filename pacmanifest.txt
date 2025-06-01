@@ -84,7 +84,6 @@ otf-overpass-nerd
 pamixer
 pandoc-cli
 papirus-icon-theme
-paru
 pavucontrol
 php-apache
 pipewire
