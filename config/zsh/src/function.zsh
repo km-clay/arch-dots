@@ -16,7 +16,7 @@ cd() {
 	return 0
 }
 
-unalias ls
+unalias ls &> /dev/null
 ls() {
 	eza -1 --group-directories-first --icons "$@"
 	playshellsound "$HOME"/dotfiles/assets/sound/ls.wav
