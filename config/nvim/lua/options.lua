@@ -3,7 +3,6 @@ if vim.g.started_by_firenvim == true then
 end
 if vim.g.neovide then
 	vim.g.neovide_refresh_rate = 144
-	vim.g.neovide_cursor_vfx_mode = "sonicboom"
 	vim.g.neovide_cursor_animate_in_insert_mode = false
 end
 
